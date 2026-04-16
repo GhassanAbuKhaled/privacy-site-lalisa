@@ -90,13 +90,25 @@
             background: transparent;
         }
 
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
         .sidebar h3 {
             font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-muted);
-            margin-bottom: 1rem;
             font-weight: 600;
+        }
+
+        .mobile-toggle-icon {
+            display: none;
+            color: var(--text-muted);
+            font-size: 0.875rem;
         }
 
         .sidebar ul {
@@ -222,15 +234,52 @@
         @media (max-width: 900px) {
             .page-container {
                 flex-direction: column;
-                padding: 2rem 1rem;
-                gap: 2rem;
+                padding: 1rem;
+                gap: 1.5rem;
             }
 
             .sidebar {
                 position: static;
                 width: 100%;
-                border-bottom: 1px solid var(--border-color);
-                padding-bottom: 1rem;
+            }
+
+            .sidebar-header {
+                background-color: #f3f4f6;
+                padding: 1rem 1.25rem;
+                margin-bottom: 0;
+                border-radius: 8px;
+                cursor: pointer;
+                border: 1px solid var(--border-color);
+            }
+
+            .sidebar-header.open {
+                border-radius: 8px 8px 0 0;
+            }
+
+            .sidebar h3 {
+                margin-bottom: 0;
+            }
+
+            .mobile-toggle-icon {
+                display: block;
+                transition: transform 0.3s ease;
+            }
+
+            .mobile-toggle-icon.open {
+                transform: rotate(180deg);
+            }
+
+            .sidebar ul {
+                display: none;
+                padding: 1rem 1.25rem;
+                background-color: var(--bg-surface);
+                border: 1px solid var(--border-color);
+                border-top: none;
+                border-radius: 0 0 8px 8px;
+            }
+
+            .sidebar ul.show {
+                display: block;
             }
 
             .content {
@@ -254,8 +303,11 @@
     <div class="page-container">
         <!-- Sidebar Navigation -->
         <nav class="sidebar">
-            <h3>Table of Contents</h3>
-            <ul>
+            <div class="sidebar-header" id="toc-header">
+                <h3>Table of Contents</h3>
+                <i class="fa-solid fa-chevron-down mobile-toggle-icon" id="toc-icon"></i>
+            </div>
+            <ul id="toc-list">
                 <li><a href="#introduction">1. Introduction</a></li>
                 <li><a href="#data-collection">2. Data Collection & Privacy</a></li>
                 <li><a href="#third-party">3. Third-Party Services</a></li>
@@ -387,6 +439,29 @@
         // Simple script to highlight the active section in the sidebar as you scroll
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.sidebar a');
+        const tocHeader = document.getElementById('toc-header');
+        const tocList = document.getElementById('toc-list');
+        const tocIcon = document.getElementById('toc-icon');
+
+        // Mobile accordion toggle
+        tocHeader.addEventListener('click', () => {
+            if (window.innerWidth <= 900) {
+                tocList.classList.toggle('show');
+                tocHeader.classList.toggle('open');
+                tocIcon.classList.toggle('open');
+            }
+        });
+
+        // Close TOC on mobile after clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    tocList.classList.remove('show');
+                    tocHeader.classList.remove('open');
+                    tocIcon.classList.remove('open');
+                }
+            });
+        });
 
         window.addEventListener('scroll', () => {
             let current = '';
