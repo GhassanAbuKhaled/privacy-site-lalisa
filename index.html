@@ -392,13 +392,13 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 150) {
+                if (scrollY >= sectionTop - 300) {
                     current = section.getAttribute('id');
                 }
             });
 
-            // Highlight last item if we are at the bottom of the page
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+            // Highlight last item only if we hit the absolute bottom
+            if (Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 5) {
                 current = 'contact';
             }
 
