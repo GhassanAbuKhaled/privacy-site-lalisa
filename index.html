@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms of Service - Lalisa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #f9f9f8;
+            --surface-color: #ffffff;
+            --text-main: #1a1c1c;
+            --text-muted: #3d4a3d;
+            --primary: #22c55e;
+            --primary-dark: #16A34A;
+            --border: #e2e2e2;
+            --shadow: rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --surface-color: #252525;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --primary: #4ae176;
+            --primary-dark: #22c55e;
+            --border: #404040;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Nav Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--surface-color);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 2rem 4rem 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-top: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Sections */
+        section {
+            background: var(--surface-color);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            border: 1px solid var(--border);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2 i {
+            color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        strong {
+            color: var(--text-main);
+        }
+
+        ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* Alert / Highlight Box */
+        .alert {
+            background: rgba(34, 197, 94, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .alert p {
+            margin: 0;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* Back to top */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #back-to-top:hover {
+            transform: translateY(-5px);
+            background: var(--primary-dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 100px 1rem 2rem 1rem;
+            }
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-leaf"></i> Lalisa
+        </div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Privacy Policy & Terms of Service</h1>
+            <p>Effective Date: <strong>April 16, 2026</strong></p>
+        </div>
+
+        <section class="fade-section">
+            <p>Welcome to <strong>Lalisa</strong> (hereby referred to as the "Application"), a freemium health, diet, and AI-powered meal tracking application developed by Ghassan Abu Khaled (hereby referred to as "Service Provider").</p>
+            <p>By downloading, accessing, or using the Application, you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree to these terms, please do not use the Application.</p>
+        </section>
+
+        <section class="fade-section">
+            <h2><i class="fa-solid fa-shield-halved"></i> 1. Data Collection and Privacy Policy</h2>
+            <p>The Service Provider is committed to protecting your privacy. To provide you with tailored calorie tracking and AI meal analysis services, the Application collects and processes the following data:</p>
+            <ul>
+                <li><strong>Account/Authentication Data:</strong> Name, email address, and authentication tokens (via Email, Google Sign-In, or Apple Sign-In).</li>
+                <li><strong>Health and Dietary Data:</strong> Daily calorie goals, macronutrient breakdowns (Protein, Carbs, Fat), and logs of foods consumed.</li>
+                <li><strong>AI Processing Data:</strong> Prompts, text, and images you provide to the chat interface are processed using Artificial Intelligence (AI) to extract nutritional information.</li>
+            </ul>
+            <div class="alert">
+                <p><i class="fa-solid fa-info-circle"></i> Your personal identifiable information is not used to train any third-party global AI models. Your health data is solely used to provide you with the core functionality of the app.</p>
+            </div>
+        </section>
+
+        <section class="fade-section">
+            <h2><i class="fa-solid fa-cloud"></i> 2. Third-Party Services</h2>
+            <p>The Application utilizes trusted third-party services to securely manage data, process subscriptions, and facilitate AI features. By using the Application, you also consent to the privacy practices of these third parties:</p>
+            <ul>
+                <li><a href="https://policies.google.com/terms" target="_blank">Google Play Services</a> (Analytics & Operations)</li>
+                <li><a href="https://www.revenuecat.com/terms" target="_blank">RevenueCat</a> (In-App Subscriptions & Purchases)</li>
+                <li><a href="https://supabase.com/privacy" target="_blank">Supabase</a> (Secure Database & Authentication)</li>
+                <li><a href="https://www.apple.com/legal/privacy/" target="_blank">Apple</a> (For iOS Apple Sign-In Users)</li>
+                <li><a href="https://cloud.google.com/terms" target="_blank">Google Cloud Generative AI</a> (For AI Meal parsing features)</li>
+            </ul>
+        </section>
+
+        <section class="fade-section">
+            <h2><i class="fa-solid fa-trash-can"></i> 3. Data Deletion & Retention</h2>
+            <p>You possess complete control over your data. <strong>You have the right to request the deletion of your account and all associated health and dietary data at any time.</strong></p>
+            <p>You can delete your account directly inside the Application by navigating to the Profile settings, or by submitting a data deletion request via email to the Service Provider. Upon deletion, all related tracking records and personal identifiers are permanently removed from our active servers.</p>
+        </section>
+
+        <section class="fade-section">
+            <h2><i class="fa-solid fa-crown"></i> 4. Subscriptions and Freemium Features</h2>
+            <p>Lalisa operates on a "Freemium" model. Certain premium features (e.g., unlimited AI scanning, detailed history, advanced breakdowns) require an active subscription. All charges will be clearly communicated before purchase. Subscriptions are billed and managed securely via your respective App Store (Google Play or Apple App Store) and RevenueCat.</p>
+        </section>
+
+        <section class="fade-section">
+            <h2><i class="fa-solid fa-lock"></i> 5. Usage Restrictions and Intellectual Property</h2>
+            <p>You agree not to copy, modify, distribute, sell, or lease any part of the Application or included software, nor may you reverse engineer or attempt to extract the source code of the Application. All trademarks, database rights, and intellectual properties related to Lalisa belong entirely to the Service Provider.</p>
+        </section>
+
+        <section class="fade-section">
+            <h2><i class="fa-solid fa-triangle-exclamation"></i> 6. Limitation of Liability</h2>
+            <p>The dietary tracking and AI-generated nutritional estimations provided by the Application are for <strong>informational and self-management purposes only</strong>. They are not intended as professional medical advice, diagnosis, or treatment.</p>
+            <p>You agree that the Service Provider accepts no liability for any health outcomes or decisions made based on the AI estimations provided by the Application.</p>
+            <p>Furthermore, the Service Provider is not liable for issues arising from a lack of internet connectivity, third-party service outages, or modifications made to your device's operating system (such as rooting or jailbreaking) which may expose the device to security vulnerabilities.</p>
+        </section>
+
+        <section class="fade-section">
+            <h2><i class="fa-solid fa-clock-rotate-left"></i> 7. Changes to This Policy</h2>
+            <p>The Service Provider may periodically update these Terms and Privacy Policy. You are advised to review this page occasionally for any changes. Continued use of the Application signifies your acceptance of any updated terms.</p>
+        </section>
+
+        <section class="fade-section">
+            <h2><i class="fa-solid fa-envelope"></i> 8. Contact Us</h2>
+            <p>If you have any questions, concerns, or requests regarding your data and these terms, please contact the Service Provider directly at:</p>
+            <p><strong><a href="mailto:ghassan.adnanabukhaled@gmail.com">ghassan.adnanabukhaled@gmail.com</a></strong></p>
+        </section>
+    </div>
+
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        
+        // Check for saved theme preference or OS default
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            root.setAttribute('data-theme', savedTheme);
+            updateToggleIcon(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            root.setAttribute('data-theme', 'dark');
+            updateToggleIcon('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = root.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            root.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateToggleIcon(newTheme);
+        });
+
+        function updateToggleIcon(theme) {
+            themeToggle.innerHTML = theme === 'dark' 
+                ? '<i class="fa-solid fa-sun"></i>' 
+                : '<i class="fa-solid fa-moon"></i>';
+        }
+
+        // Scroll animations using Intersection Observer
+        const fadeSections = document.querySelectorAll('.fade-section');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        fadeSections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Back to top button logic
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
