@@ -312,10 +312,13 @@
                 <li><a href="#data-collection">2. Data Collection & Privacy</a></li>
                 <li><a href="#third-party">3. Third-Party Services</a></li>
                 <li><a href="#data-deletion">4. Data Deletion & Retention</a></li>
-                <li><a href="#subscriptions">5. Subscriptions & Freemium</a></li>
-                <li><a href="#restrictions">6. Usage Restrictions</a></li>
-                <li><a href="#liability">7. Limitation of Liability</a></li>
-                <li><a href="#contact">8. Contact Us</a></li>
+                <li><a href="#regional-rights">5. Regional Privacy Rights</a></li>
+                <li><a href="#children">6. Children's Privacy</a></li>
+                <li><a href="#subscriptions">7. Subscriptions & Freemium</a></li>
+                <li><a href="#security">8. Data Security</a></li>
+                <li><a href="#restrictions">9. Usage Restrictions</a></li>
+                <li><a href="#liability">10. Limitation of Liability</a></li>
+                <li><a href="#contact">11. Contact Us</a></li>
             </ul>
         </nav>
 
@@ -342,19 +345,18 @@
                     personal information. To provide you with tailored calorie tracking and AI meal analysis services,
                     the Application collects and processes the following categories of data:</p>
                 <ul class="content-list">
-                    <li><strong>Account & Authentication Data:</strong> Legal name, email address, and authentication
-                        tokens provisioned via Email, Google Sign-In, or Apple Sign-In.</li>
+                    <li><strong>Account & Authentication Data:</strong> Name, email address, and sign-in identifiers from Apple or Google (we do not receive or store your passwords).</li>
                     <li><strong>Health & Dietary Data:</strong> Daily calorie and nutritional targets, macronutrient
-                        breakdowns (Protein, Carbohydrates, Fat), and comprehensive logs of consumed foods.</li>
+                        breakdowns, and comprehensive food logs. <em>Note: Under regulations such as the GDPR, this is considered "special category" sensitive data. By creating an account and using the Application, you provide your explicit consent for us to process this data solely to deliver the Application's core functionality.</em></li>
                     <li><strong>AI Processing Data:</strong> Textual prompts and images submitted to the chat interface
                         are securely processed using Artificial Intelligence to extract relevant nutritional metadata.
                     </li>
+                    <li><strong>Operational Logs & Telemetry:</strong> For debugging, abuse prevention, and service reliability, we securely log metadata associated with your AI requests (e.g., timing, model used, error codes, and your user ID) along with the raw AI response.</li>
                 </ul>
+                <p><strong>International Data Transfers:</strong> Your data is processed in the United States and other countries where our service providers operate. Where required, we rely on Standard Contractual Clauses for transfers out of the EEA/UK.</p>
                 <div class="legal-notice">
                     <strong>Important Privacy Assurance</strong>
-                    Your personal identifiable information (PII) is strictly isolated and is not utilized to train any
-                    third-party global AI models. The collected health data is strictly constrained to providing the
-                    core functionality of the application to you.
+                    We send images and text exclusively to Google's paid Gemini API for nutritional analysis, which is governed by Google's Enterprise API terms. As a paid tier customer, your personal identifiable information (PII), prompts, and images are strictly isolated and are <strong>not</strong> utilized to train Google's or any third-party AI models.
                 </div>
             </section>
 
@@ -364,8 +366,6 @@
                     infrastructure, process subscriptions, and facilitate AI capabilities. By invoking these services
                     through the Application, you accept their respective privacy practices and terms:</p>
                 <ul class="content-list">
-                    <li><a class="external-link" href="https://policies.google.com/terms" target="_blank"
-                            rel="noopener">Google Play Services</a> (Analytics & Core Operations)</li>
                     <li><a class="external-link" href="https://www.revenuecat.com/terms" target="_blank"
                             rel="noopener">RevenueCat</a> (In-App Subscriptions & Financial Processing)</li>
                     <li><a class="external-link" href="https://supabase.com/privacy" target="_blank"
@@ -387,28 +387,47 @@
                     deletion request via email to the Service Provider. Upon fulfillment of a deletion request, all
                     related tracking records, authentication credentials, and personal identifiers are permanently
                     expunged from our active production servers.</p>
+                <p><strong>Data Retention:</strong> We retain your account and health data only for as long as your account remains active. Upon initiating an account deletion, your data is permanently removed from our active production databases within 30 days. Encrypted database backups containing your data are automatically purged within 90 days of the deletion request.</p>
+            </section>
+
+            <section id="regional-rights">
+                <h2>5. Regional Privacy Rights (GDPR & CCPA)</h2>
+                <p>Depending on your region, you may have specific rights regarding your personal data. 
+                If you are a resident of the European Economic Area (EEA) or the UK (under GDPR), you have the right to access, rectify, port, restrict the processing of, or object to the processing of your data, as well as the right to lodge a complaint with your supervisory authority.</p>
+                <p>If you are a resident of California (under CCPA/CPRA), you have the right to know what personal information is collected, the right to delete, and the right to opt-out of the sale or sharing of your personal information. Please note that we do not sell or share your personal information to third parties.</p>
+                <p>To exercise any of these rights, please contact us using the information provided at the end of this policy.</p>
+            </section>
+
+            <section id="children">
+                <h2>6. Children's Privacy</h2>
+                <p>Lalisa is not directed at children under the age of 13 (or under 16 in the European Economic Area, where applicable). We do not knowingly collect personal data from children. If we become aware that we have inadvertently collected such data, we will take immediate steps to delete the information from our servers.</p>
             </section>
 
             <section id="subscriptions">
-                <h2>5. Subscriptions and Freemium Features</h2>
-                <p>Lalisa encompasses a "Freemium" business model. Certain elevated features—including unlimited AI
+                <h2>7. Subscriptions and Freemium Features</h2>
+                <p>Lalisa encompasses a "Freemium" business model. Certain elevated features—including expanded AI
                     scanning, extended historical records, and advanced nutritional breakdowns—require an active
-                    subscription. All associated costs and billing intervals will be clearly communicated and authorized
-                    prior to any transaction. Subscriptions are securely billed, governed, and managed via the official
-                    payment processing rails of your respective App Store (Google Play or Apple App Store) and
-                    RevenueCat.</p>
+                    subscription. All associated costs and billing intervals (e.g., monthly, annually) will be clearly communicated and authorized
+                    prior to any transaction.</p>
+                <p><strong>Subscription Terms:</strong> Payment will be charged to your Apple ID or Google Play account at the confirmation of purchase. Your subscription automatically renews at the same price and duration unless auto-renew is turned off at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period.</p>
+                <p><strong>Managing Subscriptions:</strong> You can manage and cancel your subscriptions by going to your Account Settings on the App Store or Google Play after purchase. Subscriptions are securely governed and managed via the official payment processing rails of your respective App Store and RevenueCat. By purchasing a subscription, you also agree to the standard <a class="external-link" href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Apple Terms of Use (EULA)</a>.</p>
+            </section>
+
+            <section id="security">
+                <h2>8. Data Security</h2>
+                <p>We implement industry-standard security measures to protect your data. All data is encrypted in transit using Transport Layer Security (TLS) and at rest utilizing Supabase-managed AES-256 encryption. Sign-in identifiers and active session tokens are securely stored locally within your device’s secure enclave (Keychain on iOS or Keystore on Android).</p>
             </section>
 
             <section id="restrictions">
-                <h2>6. Usage Restrictions and Intellectual Property</h2>
+                <h2>9. Usage Restrictions and Intellectual Property</h2>
                 <p>You strictly agree not to copy, reverse-engineer, decompile, modify, distribute, sell, or lease any
                     portion of the Application, its source code, or included software frameworks. All trademarks,
                     database rights, proprietary algorithms, and intellectual property associated with Lalisa are the
-                    exclusive corporate property of the Service Provider.</p>
+                    exclusive property of the Service Provider.</p>
             </section>
 
             <section id="liability">
-                <h2>7. Limitation of Liability</h2>
+                <h2>10. Limitation of Liability</h2>
                 <p>The dietary tracking methodologies and AI-generated nutritional estimations surfaced by the
                     Application are strictly provisioned for <strong>informational and self-management purposes
                         only</strong>. Under no circumstances are they intended to substitute professional medical
@@ -419,10 +438,11 @@
                 <p>Furthermore, the Service Provider disclaims liability for damages or service interruptions arising
                     from a lack of stable internet connectivity, third-party infrastructure outages, or unauthorized
                     modifications executed on your device’s operating system (e.g., rooting or jailbreaking).</p>
+                <p><strong>Medical Disclaimer:</strong> Lalisa is an informational tool, and its dietary recommendations should not be used by individuals with eating disorders or pre-existing medical conditions without strict medical supervision. By using the Application, you acknowledge this risk.</p>
             </section>
 
             <section id="contact">
-                <h2>8. Contact Information</h2>
+                <h2>11. Contact Information</h2>
                 <p>For any formal inquiries, legal notices, or data requests regarding this Privacy Policy and Terms of
                     Service, please contact the Service Provider at the authorized email address below:</p>
                 <p><a class="external-link"
