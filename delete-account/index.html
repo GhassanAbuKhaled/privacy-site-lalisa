@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Lalisa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <style>
+        :root {
+            --bg-body: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-surface-solid: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --primary-color: #0f766e;
+            --primary-dark: #115e59;
+            --primary-light: #f0fdfa;
+            --warning-color: #d97706;
+            --warning-light: #fef3c7;
+            --warning-dark: #b45309;
+            --danger-color: #dc2626;
+            --danger-light: #fee2e2;
+            --danger-dark: #b91c1c;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --radius-md: 6px;
+            --radius-lg: 12px;
+            --transition: all 0.25s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        ::selection {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .logo-img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+
+        .logo span {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .page-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .content {
+            background: var(--bg-surface-solid);
+            padding: 4rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .document-header {
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .document-header h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .document-header p.subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            padding-top: 1rem;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            color: var(--text-muted);
+        }
+
+        ol {
+            counter-reset: step;
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        ol li {
+            counter-increment: step;
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+            min-height: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        ol li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: #f1f5f9;
+            color: var(--text-muted);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+        }
+
+        a.external-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        a.external-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .warning-card {
+            background: #fffbeb;
+            border-left: 3px solid var(--warning-color);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .warning-card strong {
+            color: var(--warning-dark);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .warning-card p {
+            margin-bottom: 0;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .info-card {
+            background: #f1f5f9;
+            border-left: 3px solid var(--text-muted);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-card .email {
+            font-size: 1.05rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-main);
+        }
+
+        .info-card .note {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .data-block {
+            background: var(--bg-surface);
+            padding: 1.25rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .data-block h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .data-block.deleted h4 {
+            color: var(--danger-color);
+        }
+
+        .data-block.kept h4 {
+            color: var(--warning-color);
+        }
+
+        .data-block ul {
+            margin-bottom: 0;
+        }
+
+        .data-block ul li {
+            font-size: 0.95rem;
+            padding-left: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .data-block.deleted ul li::before {
+            content: '•';
+            color: var(--danger-color);
+            background: transparent;
+            width: auto;
+            height: auto;
+        }
+
+        .data-block.kept ul li::before {
+            content: '•';
+            color: var(--warning-color);
+            background: transparent;
+            width: auto;
+            height: auto;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--bg-surface);
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            .page-container {
+                padding: 2rem 1rem;
+            }
+
+            .content {
+                padding: 2rem 1.5rem;
+            }
+
+            .document-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .data-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img class="logo-img" src="/icon.png" alt="Lalisa Icon">
+                Lalisa<span> Account</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <main class="content">
+            <div class="document-header">
+                <h1>Delete Your Account</h1>
+                <p class="subtitle">You're in control of your data.</p>
+            </div>
+
+            <section id="overview">
+                <p>You can permanently delete your Lalisa account at any time. This page explains how to do it from inside the app, what data is removed, and what we're legally required to retain.</p>
+                <div class="warning-card">
+                    <strong>Heads up — this is permanent.</strong>
+                    <p>Once your account is deleted, your meal logs, scans, and profile data cannot be recovered. If you only want to take a break, signing out of the app is enough.</p>
+                </div>
+            </section>
+
+            <section id="how">
+                <h2>How to delete your account</h2>
+                <p>The fastest way is from inside the Lalisa app:</p>
+                <ol>
+                    <li>Open the Lalisa app and sign in.</li>
+                    <li>Go to <strong>Profile</strong> (bottom-right tab).</li>
+                    <li>Scroll down and tap <strong>Delete Account</strong>.</li>
+                    <li>Confirm by typing <strong>DELETE</strong> when prompted.</li>
+                </ol>
+                <p>You'll be signed out immediately. Your account and personal data are removed from our active database <strong>right away</strong>. Encrypted backups containing residual copies are purged automatically within 90 days.</p>
+            </section>
+
+            <section id="cancel-subscription">
+                <h2>Cancel your subscription first</h2>
+                <p>Deleting your account does <strong>not</strong> automatically cancel an active App Store or Play Store subscription — those are managed by the store, not by us. To avoid further charges, cancel before deleting:</p>
+                <p>
+                    <a href="https://apps.apple.com/account/subscriptions" class="external-link" target="_blank" rel="noopener">Manage iOS subscriptions</a> ·
+                    <a href="https://play.google.com/store/account/subscriptions" class="external-link" target="_blank" rel="noopener">Manage Android subscriptions</a>
+                </p>
+            </section>
+
+            <section id="data">
+                <h2>What happens to your data</h2>
+                <div class="data-grid">
+                    <div class="data-block deleted">
+                        <h4>Deleted immediately</h4>
+                        <ul>
+                            <li>Your account &amp; profile</li>
+                            <li>Meal &amp; scan history</li>
+                            <li>Daily logs &amp; macros</li>
+                            <li>Saved preferences</li>
+                            <li>Sign-in identifiers</li>
+                        </ul>
+                    </div>
+                    <div class="data-block kept">
+                        <h4>Retained temporarily or permanently</h4>
+                        <ul>
+                            <li>Encrypted database backups — purged within 90 days (Supabase automatic)</li>
+                            <li>Subscription transaction records — kept by Apple / Google / RevenueCat for tax &amp; legal compliance</li>
+                            <li>Anonymized usage logs with no personal identifiers</li>
+                        </ul>
+                    </div>
+                </div>
+                <p>For a full breakdown, see our <a href="/" class="external-link">Privacy Policy</a>.</p>
+            </section>
+
+            <section id="cant-access">
+                <h2>Can't access the app?</h2>
+                <p>If you've lost access (forgot password, lost device, etc.) and can't delete the account from inside the app, email us instead:</p>
+                <div class="info-card">
+                    <div class="email">
+                        <a href="mailto:privacy@lalisa.app?subject=Account%20Deletion%20Request" class="external-link">privacy@lalisa.app</a>
+                    </div>
+                    <div class="note">Email from the address registered with your Lalisa account so we can verify your identity. We'll process your request within 7 business days and confirm by reply.</div>
+                </div>
+            </section>
+
+            <section id="more-help">
+                <h2>Need more help?</h2>
+                <p>For general questions, see our <a href="/support" class="external-link">Support page</a> or contact <a href="mailto:support@lalisa.app" class="external-link">support@lalisa.app</a>.</p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Lalisa · <a href="/">Privacy &amp; Terms</a> · <a href="/support">Support</a></p>
+    </footer>
+
+</body>
+
+</html>
