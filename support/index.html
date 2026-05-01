@@ -5,17 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support - Lalisa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/favicon.png">
     <style>
         :root {
-            --bg-body: #f9fafb;
-            --bg-surface: #ffffff;
-            --text-main: #111827;
-            --text-muted: #4b5563;
-            --border-color: #e5e7eb;
-            --primary-color: #22c55e;
-            --primary-dark: #16a34a;
+            --bg-body: #f8fafc;
+            --bg-surface: rgba(255, 255, 255, 0.75);
+            --bg-surface-solid: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border-color: rgba(226, 232, 240, 0.8);
+            --primary-color: #10b981;
+            --primary-dark: #059669;
+            --primary-light: #d1fae5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         * {
@@ -26,19 +38,32 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-body);
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            background-attachment: fixed;
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
 
+        h1, h2, h3, h4, .logo {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        ::selection {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
         header {
-            background-color: var(--bg-surface);
+            background: var(--bg-surface);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: var(--transition);
         }
 
         .header-content {
@@ -49,148 +74,224 @@
         }
 
         .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 800;
             color: var(--text-main);
             text-decoration: none;
             letter-spacing: -0.02em;
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
         }
 
         .logo-img {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             object-fit: contain;
+            box-shadow: var(--shadow-sm);
         }
 
         .logo span {
-            color: var(--text-muted);
-            font-weight: 500;
+            color: var(--primary-dark);
+            font-weight: 600;
         }
 
         .page-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
         }
 
         .content {
-            background: var(--bg-surface);
-            padding: 3rem 4rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            background: var(--bg-surface-solid);
+            padding: 4rem 5rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), #34d399, var(--primary-color));
+            background-size: 200% 100%;
+            animation: gradientMove 5s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
         }
 
         .document-header {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             padding-bottom: 2rem;
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
         }
 
         .document-header h1 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-main), var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .document-header p.subtitle {
-            font-size: 1rem;
-            color: var(--text-muted);
-            font-weight: 400;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            display: inline-block;
+            background: var(--primary-light);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
         }
 
         section {
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
             color: var(--text-main);
-            padding-top: 1rem;
+            padding-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 4px;
         }
 
         h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
             color: var(--text-main);
         }
 
         p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 1.05rem;
         }
 
         a.external-link {
             color: var(--primary-dark);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            position: relative;
+            transition: var(--transition);
         }
 
+        a.external-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary-color);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        
         a.external-link:hover {
-            text-decoration: underline;
+            color: var(--primary-color);
+        }
+
+        a.external-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
 
         .contact-card {
-            background-color: var(--bg-body);
+            background: linear-gradient(to right, rgba(209, 250, 229, 0.6), rgba(209, 250, 229, 0.1));
             border-left: 4px solid var(--primary-color);
-            padding: 1.5rem;
-            border-radius: 0 4px 4px 0;
+            padding: 2rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
             margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
         }
 
         .contact-card .email {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--primary-dark);
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
         }
 
         .contact-card .response-time {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            margin-top: 0.5rem;
+            margin-top: 0.75rem;
+            font-weight: 500;
         }
 
         footer {
             border-top: 1px solid var(--border-color);
-            padding: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.875rem;
-            background-color: var(--bg-surface);
+            font-size: 0.95rem;
+            background: var(--bg-surface);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            font-weight: 500;
         }
 
         footer a {
             color: var(--primary-dark);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            transition: var(--transition);
         }
 
         footer a:hover {
-            text-decoration: underline;
+            color: var(--primary-color);
         }
 
         @media (max-width: 900px) {
             .page-container {
-                padding: 1rem;
+                padding: 2rem 1rem;
             }
 
             .content {
-                padding: 2rem 1.5rem;
+                padding: 2.5rem 1.5rem;
             }
 
             .document-header h1 {
-                font-size: 1.75rem;
+                font-size: 2.25rem;
             }
         }
     </style>
