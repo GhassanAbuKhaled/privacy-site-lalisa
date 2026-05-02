@@ -4,8 +4,28 @@
       {
         "appIDs": ["U6FJCDND66.com.ghassanabukhaled.lalisa"],
         "components": [
-          { "/": "/confirm-signup*" },
-          { "/": "/reset-password*" }
+          {
+            "/": "/confirm-signup",
+            "?": { "*": "*" },
+            "#": "*",
+            "comment": "Email confirmation with optional query and any fragment"
+          },
+          {
+            "/": "/confirm-signup",
+            "#": "*",
+            "comment": "Email confirmation with fragment but no query"
+          },
+          {
+            "/": "/reset-password",
+            "?": { "*": "*" },
+            "#": "*",
+            "comment": "Password reset with optional query and any fragment"
+          },
+          {
+            "/": "/reset-password",
+            "#": "*",
+            "comment": "Password reset with fragment but no query"
+          }
         ]
       }
     ]

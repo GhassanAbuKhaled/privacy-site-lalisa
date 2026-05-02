@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lalisa — Reset Password</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 24px;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #0E5535 0%, #082A1B 100%);
+      color: #f1f5f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+    .icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 24px;
+      background: rgba(34, 197, 94, 0.15);
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #c5d3c8;
+      margin: 0 0 32px;
+    }
+    .btn {
+      display: inline-block;
+      background: #22c55e;
+      color: #082A1B;
+      padding: 14px 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      transition: opacity 0.15s;
+    }
+    .btn:active { opacity: 0.7; }
+    .help {
+      font-size: 13px;
+      color: #8da193;
+      margin-top: 28px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">🔒</div>
+    <h1>Reset your password</h1>
+    <p>Open the Lalisa app to set a new password.</p>
+    <a id="open" class="btn" href="#">Open Lalisa</a>
+    <p class="help">If nothing happens, make sure the Lalisa app is installed on this device. The link is single-use — request a new one if needed.</p>
+  </div>
+
+  <script>
+    (function() {
+      var fragment = window.location.hash || '';
+      var search = window.location.search || '';
+      var deeplink = 'lalisa://reset-password' + search + fragment;
+
+      // Wire the visible button so it's tappable even before auto-redirect fires
+      document.getElementById('open').setAttribute('href', deeplink);
+
+      // Auto-attempt to open the app on first load. If the app handles it, the
+      // page is dismissed; otherwise the user sees the button.
+      window.location.href = deeplink;
+    })();
+  </script>
+</body>
+</html>
