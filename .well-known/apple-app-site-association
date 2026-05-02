@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["U6FJCDND66.com.ghassanabukhaled.lalisa"],
+        "components": [
+          { "/": "/confirm-signup*" },
+          { "/": "/reset-password*" }
+        ]
+      }
+    ]
+  }
+}

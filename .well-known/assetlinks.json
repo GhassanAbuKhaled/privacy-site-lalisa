@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ghassanabukhaled.lalisa",
+      "sha256_cert_fingerprints": [
+        "75:44:40:31:C9:D4:93:72:5E:FC:2A:F3:01:79:43:47:AB:D6:92:E3:A6:E8:79:65:83:4D:71:A7:97:FD:91:F4"
+      ]
+    }
+  }
+]
