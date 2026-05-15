@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Lalisa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <style>
+        :root {
+            --bg-body: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-surface-solid: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --primary-color: #0f766e;
+            --primary-dark: #115e59;
+            --primary-light: #f0fdfa;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --radius-md: 6px;
+            --radius-lg: 12px;
+            --transition: all 0.25s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        ::selection {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        /* Navbar */
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .logo-img {
+            width: 28px;
+            height: 28px;
+            border-radius: var(--radius-md);
+            object-fit: contain;
+        }
+
+        .logo span {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .header-nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            padding: 0.4rem 0.75rem;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        .header-nav a:hover {
+            color: var(--text-main);
+            background: var(--primary-light);
+        }
+
+        .header-nav a.current {
+            color: var(--primary-dark);
+            background: var(--primary-light);
+        }
+
+        /* Main Layout */
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            padding: 4rem 2rem;
+            gap: 3rem;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            flex: 0 0 240px;
+            position: sticky;
+            top: 7rem;
+            background: transparent;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .mobile-toggle-icon {
+            display: none;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            position: relative;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.25rem;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-md);
+        }
+
+        .sidebar a:hover {
+            color: var(--text-main);
+            background: var(--bg-surface);
+        }
+
+        .sidebar a.active {
+            color: var(--primary-dark);
+            font-weight: 500;
+            background: var(--primary-light);
+        }
+
+        /* Content Area */
+        .content {
+            flex: 1;
+            background: var(--bg-surface-solid);
+            padding: 4rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .document-header {
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .document-header h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .document-header p.effective-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            padding-top: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        ul.content-list {
+            list-style-type: none;
+            margin-left: 0;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        ul.content-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        ul.content-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        a.external-link {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        a.external-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary-color);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        a.external-link:hover {
+            color: var(--primary-color);
+        }
+
+        a.external-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .legal-notice {
+            background: linear-gradient(to right, rgba(209, 250, 229, 0.6), rgba(209, 250, 229, 0.1));
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            font-size: 1rem;
+            color: var(--text-main);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .legal-notice strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            background: var(--bg-surface);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            font-weight: 500;
+        }
+
+        footer a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            header {
+                padding: 1rem 1.25rem;
+            }
+
+            .header-nav {
+                font-size: 0.85rem;
+            }
+
+            .page-container {
+                display: block;
+                padding: 2rem 1rem;
+            }
+
+            .sidebar {
+                position: static;
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            .sidebar-header {
+                background: var(--bg-surface-solid);
+                padding: 1.25rem 1.5rem;
+                margin-bottom: 0;
+                border-radius: var(--radius-md);
+                cursor: pointer;
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow-sm);
+                transition: var(--transition);
+            }
+
+            .sidebar-header.open {
+                border-radius: var(--radius-md) var(--radius-md) 0 0;
+                border-bottom: none;
+            }
+
+            .sidebar h3 {
+                margin-bottom: 0;
+            }
+
+            .mobile-toggle-icon {
+                display: block;
+                transition: transform 0.3s ease;
+            }
+
+            .mobile-toggle-icon.open {
+                transform: rotate(180deg);
+            }
+
+            .sidebar ul {
+                display: none;
+                padding: 1rem;
+                background: var(--bg-surface-solid);
+                border: 1px solid var(--border-color);
+                border-top: none;
+                border-radius: 0 0 var(--radius-md) var(--radius-md);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .sidebar ul::before {
+                display: none;
+            }
+
+            .sidebar ul.show {
+                display: block;
+                animation: slideDown 0.3s ease-out;
+            }
+
+            @keyframes slideDown {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .content {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .document-header h1 {
+                font-size: 2.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img class="logo-img" src="/icon.png" alt="Lalisa Icon">
+                Lalisa<span> Privacy</span>
+            </a>
+            <nav class="header-nav">
+                <a href="/privacy" class="current">Privacy</a>
+                <a href="/terms">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header" id="toc-header">
+                <h3>Table of Contents</h3>
+                <i class="fa-solid fa-chevron-down mobile-toggle-icon" id="toc-icon"></i>
+            </div>
+            <ul id="toc-list">
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#data-collection">2. Data Collection</a></li>
+                <li><a href="#third-party">3. Third-Party Services</a></li>
+                <li><a href="#data-deletion">4. Data Deletion & Retention</a></li>
+                <li><a href="#regional-rights">5. Regional Privacy Rights</a></li>
+                <li><a href="#children">6. Children's Privacy</a></li>
+                <li><a href="#security">7. Data Security</a></li>
+                <li><a href="#changes">8. Changes to this Policy</a></li>
+                <li><a href="#contact">9. Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Document Content -->
+        <main class="content">
+            <div class="document-header">
+                <h1>Privacy Policy</h1>
+                <p class="effective-date">Effective Date: May 9, 2026</p>
+            </div>
+
+            <section id="introduction">
+                <h2>1. Introduction</h2>
+                <p>This Privacy Policy describes how <strong>Lalisa</strong> (the "Application"), a freemium health, diet,
+                    and AI-powered meal tracking application developed by Ghassan Abu Khaled (the "Service Provider"),
+                    collects, uses, and protects your personal information.</p>
+                <p>By downloading, accessing, or using the Application, you agree to the data practices described in this
+                    Privacy Policy. Your use of the Application is also subject to our <a class="external-link"
+                        href="/terms">Terms of Use</a>.</p>
+            </section>
+
+            <section id="data-collection">
+                <h2>2. Data Collection</h2>
+                <p>The Service Provider is highly committed to protecting your privacy and ensuring the security of your
+                    personal information. To provide you with tailored calorie tracking and AI meal analysis services,
+                    the Application collects and processes the following categories of data:</p>
+                <ul class="content-list">
+                    <li><strong>Account & Authentication Data:</strong> Name, email address, and sign-in identifiers
+                        from Apple or Google (we do not receive or store your passwords).</li>
+                    <li><strong>Health & Dietary Data:</strong> Daily calorie and nutritional targets, macronutrient
+                        breakdowns, and comprehensive food logs. <em>Note: Under regulations such as the GDPR, this is
+                            considered "special category" sensitive data. By creating an account and using the
+                            Application, you provide your explicit consent for us to process this data solely to deliver
+                            the Application's core functionality.</em></li>
+                    <li><strong>AI Processing Data:</strong> Textual prompts and images submitted to the chat interface
+                        are securely processed using Artificial Intelligence to extract relevant nutritional metadata.
+                    </li>
+                    <li><strong>Operational Logs & Telemetry:</strong> For debugging, abuse prevention, and service
+                        reliability, we securely log metadata associated with your AI requests (e.g., timing, model
+                        used, error codes, and your user ID) along with the raw AI response.</li>
+                    <li><strong>Product Analytics:</strong> Usage events such as screen views, onboarding progress,
+                        scan outcomes, and subscription milestones, alongside device type, operating system, app
+                        version, and locale. These analytics are collected through PostHog and hosted in the European
+                        Union (PostHog EU Cloud). Product analytics are processed on the basis of our legitimate
+                        interest in improving the Application; you may object at any time (see Section 5).</li>
+                </ul>
+                <p><strong>International Data Transfers:</strong> Your data is processed in the United States and other
+                    countries where our service providers operate. Where required, we rely on Standard Contractual
+                    Clauses for transfers out of the EEA/UK.</p>
+                <div class="legal-notice">
+                    <strong>Important Privacy Assurance</strong>
+                    We send images and text exclusively to Google's paid Gemini API for nutritional analysis, which is
+                    governed by Google's Enterprise API terms. As a paid tier customer, your personal identifiable
+                    information (PII), prompts, and images are strictly isolated and are <strong>not</strong> utilized
+                    to train Google's or any third-party AI models.
+                </div>
+            </section>
+
+            <section id="third-party">
+                <h2>3. Third-Party Service Providers</h2>
+                <p>The Application securely integrates with certified third-party service providers to manage
+                    infrastructure, process subscriptions, and facilitate AI capabilities. By invoking these services
+                    through the Application, you accept their respective privacy practices and terms:</p>
+                <ul class="content-list">
+                    <li><a class="external-link" href="https://www.revenuecat.com/terms" target="_blank"
+                            rel="noopener">RevenueCat</a> (In-App Subscriptions & Financial Processing)</li>
+                    <li><a class="external-link" href="https://supabase.com/privacy" target="_blank"
+                            rel="noopener">Supabase</a> (Secure Cloud Database & Authentication)</li>
+                    <li><a class="external-link" href="https://www.apple.com/legal/privacy/" target="_blank"
+                            rel="noopener">Apple</a> (Authentication via Sign-In with Apple)</li>
+                    <li><a class="external-link" href="https://cloud.google.com/terms" target="_blank"
+                            rel="noopener">Google Cloud Generative AI</a> (AI Meal Parsing Capabilities)</li>
+                    <li><a class="external-link" href="https://posthog.com/privacy" target="_blank"
+                            rel="noopener">PostHog</a> (Product Analytics, hosted in the European Union)</li>
+                </ul>
+            </section>
+
+            <section id="data-deletion">
+                <h2>4. Data Deletion & Retention</h2>
+                <p>You maintain ultimate control and ownership over your personal data. You possess the continuous right
+                    to request the permanent deletion of your account and all associated health, dietary, and historical
+                    data.</p>
+                <p><strong>Deletion Process:</strong> You may invoke an immediate account deletion directly within the
+                    Application by navigating to the Profile settings, or alternatively, by submitting a formal data
+                    deletion request via email to the Service Provider. Upon fulfillment of a deletion request, all
+                    related tracking records, authentication credentials, and personal identifiers are permanently
+                    expunged from our active production servers.</p>
+                <p><strong>Data Retention:</strong> We retain your account and health data only for as long as your
+                    account remains active. Upon initiating an account deletion, your data is permanently removed from
+                    our active production databases within 30 days. Encrypted database backups containing your data are
+                    automatically purged within 90 days of the deletion request.</p>
+            </section>
+
+            <section id="regional-rights">
+                <h2>5. Regional Privacy Rights (GDPR & CCPA)</h2>
+                <p>Depending on your region, you may have specific rights regarding your personal data.
+                    If you are a resident of the European Economic Area (EEA) or the UK (under GDPR), you have the right
+                    to access, rectify, port, restrict the processing of, or object to the processing of your data, as
+                    well as the right to lodge a complaint with your supervisory authority.</p>
+                <p>If you are a resident of California (under CCPA/CPRA), you have the right to know what personal
+                    information is collected, the right to delete, and the right to opt-out of the sale or sharing of
+                    your personal information. Please note that we do not sell or share your personal information to
+                    third parties.</p>
+                <p>To exercise any of these rights, please contact us using the information provided at the end of this
+                    policy.</p>
+                <p><strong>Objecting to product analytics:</strong> You may object to analytics processing at any time by
+                    emailing <a class="external-link" href="mailto:privacy@lalisa.app">privacy@lalisa.app</a> or by
+                    deleting your account from the Profile screen — both remove your data from our analytics provider.</p>
+            </section>
+
+            <section id="children">
+                <h2>6. Children's Privacy</h2>
+                <p>Lalisa is not directed at children under the age of 13 (or under 16 in the European Economic Area,
+                    where applicable). We do not knowingly collect personal data from children. If we become aware that
+                    we have inadvertently collected such data, we will take immediate steps to delete the information
+                    from our servers.</p>
+            </section>
+
+            <section id="security">
+                <h2>7. Data Security</h2>
+                <p>We implement industry-standard security measures to protect your data. All data is encrypted in
+                    transit using Transport Layer Security (TLS) and at rest utilizing Supabase-managed AES-256
+                    encryption. Sign-in identifiers and active session tokens are securely stored locally within your
+                    device's secure enclave (Keychain on iOS or Keystore on Android).</p>
+            </section>
+
+            <section id="changes">
+                <h2>8. Changes to this Policy</h2>
+                <p>We may update this Privacy Policy from time to time. The "Effective Date" at the top reflects the
+                    latest revision. Material changes will be communicated via in-app notice or email prior to taking
+                    effect. Continued use of the Application after the effective date constitutes acceptance of the
+                    updated Privacy Policy.</p>
+            </section>
+
+            <section id="contact">
+                <h2>9. Contact Us</h2>
+                <p>For any formal inquiries, legal notices, or data requests regarding this Privacy Policy, please
+                    contact the Service Provider at the authorized email address below:</p>
+                <p><a class="external-link" href="mailto:privacy@lalisa.app">privacy@lalisa.app</a>
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Lalisa · <a href="/terms">Terms of Use</a> · <a href="/support">Support</a></p>
+    </footer>
+
+    <script>
+        // Simple script to highlight the active section in the sidebar as you scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.sidebar a');
+        const tocHeader = document.getElementById('toc-header');
+        const tocList = document.getElementById('toc-list');
+        const tocIcon = document.getElementById('toc-icon');
+
+        // Mobile accordion toggle
+        tocHeader.addEventListener('click', () => {
+            if (window.innerWidth <= 900) {
+                tocList.classList.toggle('show');
+                tocHeader.classList.toggle('open');
+                tocIcon.classList.toggle('open');
+            }
+        });
+
+        // Close TOC on mobile after clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    tocList.classList.remove('show');
+                    tocHeader.classList.remove('open');
+                    tocIcon.classList.remove('open');
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 300) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Highlight last item only if we hit the absolute bottom
+            if (Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 5) {
+                current = 'contact';
+            }
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href') || '';
+                if (current && href.includes('#' + current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
